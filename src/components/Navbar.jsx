@@ -1,10 +1,12 @@
 import { useState } from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 import {
   AppBar,
   Box,
   Button,
   Container,
   IconButton,
+  Link,
   Menu,
   MenuItem,
   Toolbar,
@@ -14,16 +16,14 @@ import {
 import MenuIcon from '@mui/icons-material/Menu';
 import AdbIcon from '@mui/icons-material/Adb';
 
-const pages = ['Home', 'Search'];
-
 export const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = useState(null);
 
-  const handleOpenNavMenu = event => {
+  const onOpenNavMenu = event => {
     setAnchorElNav(event.currentTarget);
   };
 
-  const handleCloseNavMenu = () => {
+  const onCloseNavMenu = () => {
     setAnchorElNav(null);
   };
 
@@ -35,8 +35,6 @@ export const Navbar = () => {
           <Typography
             variant='h6'
             noWrap
-            component='a'
-            href='/'
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -50,16 +48,13 @@ export const Navbar = () => {
             Pokedex
           </Typography>
 
-          {/* <MenuOutlined>
-          </MenuOutlined> */}
-
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size='large'
               aria-label='account of current user'
               aria-controls='menu-appbar'
               aria-haspopup='true'
-              onClick={handleOpenNavMenu}
+              onClick={onOpenNavMenu}
               color='inherit'
             >
               <MenuIcon />
@@ -77,16 +72,25 @@ export const Navbar = () => {
                 horizontal: 'left',
               }}
               open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
+              onClose={onCloseNavMenu}
               sx={{
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map(page => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign='center'>{page}</Typography>
-                </MenuItem>
-              ))}
+              <MenuItem onClick={onCloseNavMenu}>
+                <Typography textAlign='center'>
+                  <Link underline='none' component={RouterLink} to='/'>
+                    Home
+                  </Link>
+                </Typography>
+              </MenuItem>
+              <MenuItem onClick={onCloseNavMenu}>
+                <Typography textAlign='center'>
+                  <Link underline='none' component={RouterLink} to='/search'>
+                    Search
+                  </Link>
+                </Typography>
+              </MenuItem>
             </Menu>
           </Box>
           <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
@@ -109,15 +113,35 @@ export const Navbar = () => {
             Pokedex
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map(page => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+            <Button
+              variant='text'
+              onClick={onCloseNavMenu}
+              sx={{ my: 2, color: 'white', display: 'block' }}
+            >
+              <Link
+                underline='none'
+                component={RouterLink}
+                to='/'
+                sx={{ color: 'white', display: 'block' }}
               >
-                {page}
-              </Button>
-            ))}
+                Home
+              </Link>
+            </Button>
+
+            <Button
+              variant='text'
+              onClick={onCloseNavMenu}
+              sx={{ my: 2, color: 'white', display: 'block' }}
+            >
+              <Link
+                underline='none'
+                component={RouterLink}
+                to='/search'
+                sx={{ color: 'white', display: 'block' }}
+              >
+                Search
+              </Link>
+            </Button>
           </Box>
         </Toolbar>
       </Container>
