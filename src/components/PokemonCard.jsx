@@ -2,7 +2,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import Card from '@mui/material/Card';
 import { Button, CardActions, CardContent, Link, Typography } from '@mui/material';
 
-export const PokemonCard = ({ name, sprites }) => {
+export const PokemonCard = ({ id, name, sprites }) => {
   return (
     <Card>
       <CardContent>
@@ -19,7 +19,7 @@ export const PokemonCard = ({ name, sprites }) => {
           <Link
             underline='none'
             component={RouterLink}
-            to='/pokemon'
+            to={`/pokemon/${id}`}
             sx={{ color: 'white', display: 'block' }}
           >
             More Info

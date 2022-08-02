@@ -5,11 +5,11 @@ import { HomePage, PokemonPage, SearchPage } from '../pages';
 export const AppRouter = () => {
   return (
     <BrowserRouter>
-    <Navbar />
+      <Navbar />
       <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='search' element={<SearchPage />} />
-        <Route path='pokemon' element={<PokemonPage />} />
+        <Route path='pokemon/:id' element={<PokemonPage />} />
         <Route path='/*' element={<Navigate to='/' />} />
       </Routes>
     </BrowserRouter>
