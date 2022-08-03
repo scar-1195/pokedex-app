@@ -4,7 +4,23 @@ import { Button, CardActions, CardContent, Link, Typography } from '@mui/materia
 
 export const PokemonCard = ({ id, name, sprites }) => {
   return (
-    <Card>
+    <Card
+      className='.glassmorphism_card'
+      sx={{
+        background:' rgba(255, 255, 255, 0.25)',
+        boxShadow: '0, 8px 32px 0 rgba(31, 38, 135, 0.37)',
+        backdropFilter: 'blur(4px)',
+        webkitBackdropFilter: 'blur(4px)',
+        borderRadius: '10px',
+        border: '1px solid rgba(255, 255, 255, 0.18)',
+        m: 3,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: '300px',
+      }}
+    >
       <CardContent>
         <img src={sprites.front_default} alt='' />
         <Typography variant='h5' component='div'>

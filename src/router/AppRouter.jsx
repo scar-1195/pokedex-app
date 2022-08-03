@@ -1,6 +1,6 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { Navbar } from '../components';
-import { HomePage, PokemonPage, SearchPage } from '../pages';
+import { HomePage, PokemonPage } from '../pages';
 
 export const AppRouter = () => {
   return (
@@ -8,7 +8,6 @@ export const AppRouter = () => {
       <Navbar />
       <Routes>
         <Route path='/' element={<HomePage />} />
-        <Route path='search' element={<SearchPage />} />
         <Route path='pokemon/:id' element={<PokemonPage />} />
         <Route path='/*' element={<Navigate to='/' />} />
       </Routes>

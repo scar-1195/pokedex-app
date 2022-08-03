@@ -1,11 +1,4 @@
-import {
-  Button,
-  Card,
-  CardActions,
-  CardContent,
-  Grid,
-  Typography,
-} from '@mui/material';
+import { Button, Card, CardActions, CardContent, Grid, Typography } from '@mui/material';
 import { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Loading } from '../components';
@@ -17,7 +10,7 @@ export const PokemonPage = () => {
 
   const { isLoading, pokemons, startLoadingPokemons, getPokemonById } =
     usePokemonSlice();
-  const { sprites } = pokemons;
+  const { sprites, types } = pokemons;
 
   useEffect(() => {
     getPokemonById(id);
@@ -28,13 +21,37 @@ export const PokemonPage = () => {
     navigate('/');
   };
 
-  if (isLoading || sprites === undefined) {
+  if (isLoading || sprites === undefined || types === undefined) {
     return <Loading />;
   }
 
   return (
-    <Grid container>
-      <Card sx={{ minWidth: 275, minHeight: '89vh' }}>
+    <Grid
+      container
+      sx={{
+        backgroundColor: 'background.main',
+        display: 'flex',
+        justifyContent: 'center',
+        minHeight: '90vh',
+        flexWrap: 'wrap',
+      }}
+    >
+      <Card
+        sx={{
+          background: ' rgba(255, 255, 255, 0.25)',
+          boxShadow: '0, 8px 32px 0 rgba(31, 38, 135, 0.37)',
+          backdropFilter: 'blur(4px)',
+          webkitBackdropFilter: 'blur(4px)',
+          borderRadius: '10px',
+          border: '1px solid rgba(255, 255, 255, 0.18)',
+          m: 3,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          width: '500px',
+        }}
+      >
         <CardContent>
           <Typography variant='h5' component='div'>
             {pokemons.name}
@@ -46,7 +63,8 @@ export const PokemonPage = () => {
           <img src={sprites.back_default} alt={sprites.back_default} />
           <img src={sprites.front_shiny} alt={sprites.front_shiny} />
           <img src={sprites.back_shiny} alt={sprites.back_shiny} />
-          <Typography variant='body2'>well meaning and kindly.</Typography>
+          <Typography variant='body2'>Height: {pokemons.height}</Typography>
+          <Typography variant='body2'>Weight: {pokemons.weight}</Typography>
         </CardContent>
         <CardActions>
           <Button size='small' variant='contained' onClick={onNavigateBack}>

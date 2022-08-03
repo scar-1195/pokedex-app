@@ -11,7 +11,7 @@ export const usePokemonSlice = () => {
     dispatch(onStartLoading());
     const { data } = await pokemonApi.get(`pokemon?offset=${offset}&limit=20`);
     const { results } = await data;
-    const fetches = results.map(async pokemon => await axios.get(pokemon.url));
+    const fetches =  results.map(async pokemon => await axios.get(pokemon.url));
     const pokeDataWithSprites = await Promise.all(fetches);
     dispatch(onSetPokemonData({ pokemons: pokeDataWithSprites }));
   };

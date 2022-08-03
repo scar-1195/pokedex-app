@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Button } from '@mui/material';
+import { Button, Container, Grid } from '@mui/material';
 import { Loading, PokemonList } from '../components';
 import { usePokemonSlice } from '../hooks';
 
@@ -26,14 +26,32 @@ export const HomePage = () => {
   };
 
   return (
-    <>
-      <PokemonList pokemons={pokemons} />
-      <Button disabled={isLoading} variant='contained' onClick={onPrevPage}>
-        Prev
-      </Button>
-      <Button disabled={isLoading} variant='contained' onClick={onNextPage}>
-        Next
-      </Button>
-    </>
+    <Container
+      sx={{
+        backgroundColor: 'background.main',
+        display: 'flex',
+        flexDirection: 'column',
+        minWidth: '100%',
+      }}
+    >
+      <Grid>
+        <PokemonList pokemons={pokemons} />
+      </Grid>
+      <Grid
+        sx={{
+          // backgroundColor: '#333',
+          display: 'flex',
+          justifyContent: 'space-around',
+          alignContent: 'center',
+        }}
+      >
+        <Button disabled={isLoading} variant='contained' onClick={onPrevPage}>
+          Prev
+        </Button>
+        <Button disabled={isLoading} variant='contained' onClick={onNextPage}>
+          Next
+        </Button>
+      </Grid>
+    </Container>
   );
 };
