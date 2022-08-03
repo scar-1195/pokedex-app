@@ -12,12 +12,12 @@ export const Navbar = () => {
             variant='h6'
             noWrap
             sx={{
-              m: 2,
+              color: 'inherit',
               display: { xs: 'none', md: 'flex' },
               fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.1rem',
-              color: 'inherit',
+              m: 2,
               textDecoration: 'none',
             }}
           >
@@ -26,10 +26,10 @@ export const Navbar = () => {
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}></Box>
           <Typography
-            variant='h5'
-            noWrap
             component='a'
             href=''
+            noWrap
+            variant='h5'
             sx={{
               mr: 5,
               display: { xs: 'flex', md: 'none' },

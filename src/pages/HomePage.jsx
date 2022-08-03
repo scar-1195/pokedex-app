@@ -39,10 +39,9 @@ export const HomePage = () => {
       </Grid>
       <Grid
         sx={{
-          // backgroundColor: '#333',
+          alignContent: 'center',
           display: 'flex',
           justifyContent: 'space-around',
-          alignContent: 'center',
         }}
       >
         <Button disabled={isLoading} variant='contained' onClick={onPrevPage}>

@@ -7,17 +7,17 @@ export const PokemonCard = ({ id, name, sprites }) => {
     <Card
       className='.glassmorphism_card'
       sx={{
-        background:' rgba(255, 255, 255, 0.25)',
-        boxShadow: '0, 8px 32px 0 rgba(31, 38, 135, 0.37)',
+        alignItems: 'center',
         backdropFilter: 'blur(4px)',
-        webkitBackdropFilter: 'blur(4px)',
-        borderRadius: '10px',
+        background: ' rgba(255, 255, 255, 0.25)',
         border: '1px solid rgba(255, 255, 255, 0.18)',
-        m: 3,
+        borderRadius: '10px',
+        boxShadow: '0, 8px 32px 0 rgba(31, 38, 135, 0.37)',
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center',
         justifyContent: 'center',
+        m: 3,
+        webkitBackdropFilter: 'blur(4px)',
         width: '300px',
       }}
     >
@@ -33,10 +33,10 @@ export const PokemonCard = ({ id, name, sprites }) => {
           sx={{ my: 2, color: 'white', display: 'block' }}
         >
           <Link
-            underline='none'
             component={RouterLink}
-            to={`/pokemon/${id}`}
             sx={{ color: 'white', display: 'block' }}
+            to={`/pokemon/${id}`}
+            underline='none'
           >
             More Info
           </Link>
