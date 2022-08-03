@@ -9,13 +9,19 @@ export const pokemonSlice = createSlice({
   reducers: {
     onStartLoading: state => {
       state.isLoading = true;
+      state.pokemons = [];
     },
 
     onSetPokemonData: (state, { payload }) => {
       state.isLoading = false;
       state.pokemons = payload.pokemons;
     },
+
+    onGetPokemonById: (state, { payload }) => {
+      state.isLoading = false;
+      state.pokemons = payload.pokemons;
+    },
   },
 });
 
-export const { onStartLoading, onSetPokemonData } = pokemonSlice.actions;
+export const { onStartLoading, onSetPokemonData, onGetPokemonById } = pokemonSlice.actions;
