@@ -1,7 +1,24 @@
 # Pokedex APP
 
 ## Table of contents
+* [Technologies](#technologies)
+* [Resume](#resume)
+* [Notes](#notes)
 * [Scripts](#available-scripts)
+
+## Technologies
+* React
+* Axios
+* Redux
+* react-router
+* Material UI
+
+## Resume
+This application pretends to be a Pokedex in which you can see all some data of all the pokemons.
+Soon I will implement the search bar to add another layer of functionality to the application.
+
+## Notes
+Please don't use the browser buttons because it may cause a problem with redux-toolkit, I'll be working to fix that.
 
 ## Available Scripts
 
